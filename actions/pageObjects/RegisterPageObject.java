@@ -5,9 +5,12 @@ import org.openqa.selenium.WebDriver;
 import commons.AbstractPages;
 import pageUIs.RegisterPageUI;
 
+//ke thua abstract page
 public class RegisterPageObject extends AbstractPages {
 
 	WebDriver driver;
+	
+	//khoi tao contructor de map driver lan dau tien
 	public RegisterPageObject(WebDriver _driver) {
 		driver=_driver;
 	}
