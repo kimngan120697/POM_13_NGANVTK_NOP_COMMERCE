@@ -8,17 +8,20 @@ import pageUIs.RegisterPageUI;
 public class RegisterPageObject extends AbstractPages {
 
 	WebDriver driver;
+	public RegisterPageObject(WebDriver _driver) {
+		driver=_driver;
+	}
 	public void clickToMaleRadioButton() {
-		waitForElementInvisible(driver, RegisterPageUI.MALE_RADIO_BUTTON);
+		waitForElementClickable(driver, RegisterPageUI.MALE_RADIO_BUTTON);
 		clickToElement(driver, RegisterPageUI.MALE_RADIO_BUTTON);
 	}
-
+	
 	public void inputToFirstName(String firstNameValue) {
-		waitForElementInvisible(driver, RegisterPageUI.FRIST_NAME_TEXTBOX);
+		waitForElementIsDisplayed(driver, RegisterPageUI.FRIST_NAME_TEXTBOX);
 		senkeyToElement(driver, RegisterPageUI.FRIST_NAME_TEXTBOX, firstNameValue);
 	}
 	public void inputToLastName(String lastNameValue) {
-		waitForElementInvisible(driver, RegisterPageUI.LAST_NAME_TEXTBOX);
+		waitForElementIsDisplayed(driver, RegisterPageUI.LAST_NAME_TEXTBOX);
 		senkeyToElement(driver, RegisterPageUI.LAST_NAME_TEXTBOX, lastNameValue);
 	}
 	public void selectDay(String dateValue) {
@@ -38,38 +41,38 @@ public class RegisterPageObject extends AbstractPages {
 	}
 
 	public void inputToEmailTextbox(String emailValue) {
-		waitForElementInvisible(driver, RegisterPageUI.EMAIL_TEXTBOX);
+		waitForElementIsDisplayed(driver, RegisterPageUI.EMAIL_TEXTBOX);
 		senkeyToElement(driver, RegisterPageUI.EMAIL_TEXTBOX, emailValue);
 	}
 
 	public void inputToPasswordTextbox(String passwordValue) {
-		waitForElementInvisible(driver, RegisterPageUI.PASSWORD_TEXTBOX);
+		waitForElementIsDisplayed(driver, RegisterPageUI.PASSWORD_TEXTBOX);
 		senkeyToElement(driver, RegisterPageUI.PASSWORD_TEXTBOX, passwordValue);
 	}
 
 	public void inputToCompanyTextbox(String companyValue) {
-		waitForElementInvisible(driver, RegisterPageUI.COMPANY_TEXTBOX);
+		waitForElementIsDisplayed(driver, RegisterPageUI.COMPANY_TEXTBOX);
 		senkeyToElement(driver, RegisterPageUI.COMPANY_TEXTBOX, companyValue);
 	}
 
 	public void inputToConfirmPasswordTextbox(String comfirmPasswordValue) {
-		waitForElementInvisible(driver, RegisterPageUI.CONFIRM_PASSWORD_TEXTBOX);
+		waitForElementIsDisplayed(driver, RegisterPageUI.CONFIRM_PASSWORD_TEXTBOX);
 		senkeyToElement(driver, RegisterPageUI.CONFIRM_PASSWORD_TEXTBOX, comfirmPasswordValue);
 	}
 
 	public void clickToRegisterButton() {
-		waitForElementInvisible(driver, RegisterPageUI.REGISTER_BUTTON);
+		waitForElementIsDisplayed(driver, RegisterPageUI.REGISTER_BUTTON);
 		clickToElement(driver, RegisterPageUI.REGISTER_BUTTON);
 	}
 
 	public String getRegisterSuccessMessage() {
-		waitForElementInvisible(driver, RegisterPageUI.REGISTER_SUCCESS_TEXT);
+		waitForElementIsDisplayed(driver, RegisterPageUI.REGISTER_SUCCESS_TEXT);
 		return getTextElement(driver, RegisterPageUI.REGISTER_SUCCESS_TEXT);
 	}
 	
 	public HomePageObject clickToLogoutLink() {
 		waitForElementClickable(driver, RegisterPageUI.LOG_OUT_LINK);
 		clickToElement(driver, RegisterPageUI.LOG_OUT_LINK);
-		return new HomePageObject();
+		return new HomePageObject(driver);
 	}
 }

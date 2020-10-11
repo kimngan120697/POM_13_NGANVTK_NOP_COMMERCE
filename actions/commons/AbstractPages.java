@@ -197,7 +197,7 @@ public class AbstractPages {
 	public void waitForElementIsDisplayed(WebDriver driver, String locator) {
 		byXpath=byXpathLocator(locator);
 		waitExplicit = new WebDriverWait(driver, longTimeout);
-		waitExplicit.until(ExpectedConditions.invisibilityOfElementLocated(byXpath));
+		waitExplicit.until(ExpectedConditions.visibilityOfElementLocated(byXpath));
 	}
 	
 	public void waitForElementClickable(WebDriver driver, String locator) {

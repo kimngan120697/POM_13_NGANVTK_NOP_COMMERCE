@@ -109,6 +109,7 @@ public class AbstractPage {
 	}
 	
 	public void senkeyToElement(String locator, String value) {
+		findElementByXpath(locator).clear();
 		findElementByXpath(locator).sendKeys(value);
 	}
 	

@@ -31,7 +31,7 @@ public class Login_01_RegisterAndLogin extends AbstractPages{
 	String firstName="Vo Thi Kim";
 	String lastName="Ngan";
 	String day="12";
-	String month="06";
+	String month="June";
 	String year="1997";
 	String company="VNIB";
 	
@@ -59,9 +59,9 @@ public class Login_01_RegisterAndLogin extends AbstractPages{
 		email = "julia" + RandomNumber() + "@gmail.com";
 		password = "abcd@54321";
 		
-		homePage = new HomePageObject();
-		registerPage = new RegisterPageObject();
-		loginPage = new LoginPageObject();
+		homePage = new HomePageObject(driver);
+		registerPage = new RegisterPageObject(driver);
+		loginPage = new LoginPageObject(driver);
 	}
 
 	@Test
