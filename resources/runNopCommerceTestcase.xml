@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Run on Firefox" parallel="false">
-  <test name="Test">
-    <classes>
-      <class name="com.nopcommerce.login.Login_01_RegisterAndLogin"/>
-    </classes>
-  </test> 
+<suite name="Nop Commerce" parallel="false">
+<!-- 	<test name="Run on CHROME"> -->
+<!-- 		<parameter name="browser" value="chrome" /> -->
+<!-- 		<classes> -->
+<!-- 			<class name="com.nopcommerce.login.Login_01_RegisterAndLogin" /> -->
+<!-- 		</classes> -->
+<!-- 	</test> -->
+	<test name="Run on FIREFOX">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="com.nopcommerce.login.Login_01_RegisterAndLogin" />
+		</classes>
+	</test>
+	<test name="Run on CHROME HEADLESS ">
+		<parameter name="browser" value="headless_chrome" />
+		<classes>
+			<class name="com.nopcommerce.login.Login_01_RegisterAndLogin" />
+		</classes>
+	</test>
+		<test name="Run on FIREFOX HEADLESS ">
+		<parameter name="browser" value="headless_firefox" />
+		<classes>
+			<class name="com.nopcommerce.login.Login_01_RegisterAndLogin" />
+		</classes>
+	</test>
 </suite>
