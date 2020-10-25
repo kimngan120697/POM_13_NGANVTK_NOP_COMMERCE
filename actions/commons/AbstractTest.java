@@ -29,7 +29,7 @@ public class AbstractTest {
 			FirefoxOptions options = new FirefoxOptions();
 			options.addArguments("headless");
 			options.addArguments("window-size=1366x768"); // Phải set size vì nó k có GUI
-			driver = new FirefoxDriver(options); // Nhét option vào
+			driver = new FirefoxDriver(options); // Nhét option vào...
 		}
 		driver.get(GlobalConstants.DEV_URL);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
