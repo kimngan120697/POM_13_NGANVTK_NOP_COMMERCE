@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Nop Commerce" parallel="false">
-<!-- 	<test name="Run on CHROME"> -->
-<!-- 		<parameter name="browser" value="chrome" /> -->
-<!-- 		<classes> -->
-<!-- 			<class name="com.nopcommerce.login.Login_01_RegisterAndLogin" /> -->
-<!-- 		</classes> -->
-<!-- 	</test> -->
+	<test name="Run on CHROME">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="com.nopcommerce.login.Login_01_RegisterAndLogin" />
+		</classes>
+	</test>
 	<test name="Run on FIREFOX">
 		<parameter name="browser" value="firefox" />
 		<classes>

@@ -2,8 +2,6 @@ package com.nopcommerce.login;
 
 import org.testng.annotations.Test;
 
-import commons.AbstractPage;
-import commons.AbstractPages;
 import commons.AbstractTest;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
@@ -13,15 +11,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
