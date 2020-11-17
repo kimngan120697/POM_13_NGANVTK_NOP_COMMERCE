@@ -125,6 +125,12 @@ public class Login_01_RegisterAndLogin extends AbstractTest {
 
 	}
 
+	@Test
+	public void TC_03_LoginWithEmailIsNotRegister() {
+		loginPage = homePage.clickToLoginLink();
+	}
+	
+	
 	public int RandomNumber() {
 		Random rand = new Random();
 		return rand.nextInt(999999);
