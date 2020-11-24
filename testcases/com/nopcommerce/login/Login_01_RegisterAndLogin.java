@@ -16,6 +16,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
+
+//Page Object kế thừa abstract page
+// Test case kế thừa abstract test
 public class Login_01_RegisterAndLogin extends AbstractTest {
 
 	private WebDriver driver;

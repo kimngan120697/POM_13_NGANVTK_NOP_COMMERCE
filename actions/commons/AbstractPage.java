@@ -113,8 +113,10 @@ public class AbstractPage {
 		findElementByXpath(locator).sendKeys(value);
 	}
 	
-	public void selectItemInDropdown() {
-		
+	public void selectItemInDropdown(String locator, String valueItem) {
+		element = findElementByXpath(locator);
+		select = new Select(element);
+		select.selectByVisibleText(valueItem);
 	}
 	
 	public void getSelectedItemInDropdown() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Nop Commerce" parallel="false">
+<suite name="Nop Commerce" parallel="false"> 
 	<test name="Run on CHROME">
 		<parameter name="browser" value="chrome" />
 		<classes>
