@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPages;
+import commons.PageGeneratorManager;
 import pageUIs.LoginPageUI;
 
 public class LoginPageObject extends AbstractPages{
@@ -24,6 +25,6 @@ public class LoginPageObject extends AbstractPages{
 	public HomePageObject clickToLoginButton() {
 		waitForElementClickable(driver, LoginPageUI.LOGIN_BUTTON);
 		clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
-		return new HomePageObject(driver);
+		return new PageGeneratorManager().getHomPageObject(driver);
 	}
 }
