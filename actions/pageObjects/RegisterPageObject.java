@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPages;
+import commons.PageGeneratorManager;
 import pageUIs.RegisterPageUI;
 
 //ke thua abstract page
@@ -76,6 +77,6 @@ public class RegisterPageObject extends AbstractPages {
 	public HomePageObject clickToLogoutLink() {
 		waitForElementClickable(driver, RegisterPageUI.LOG_OUT_LINK);
 		clickToElement(driver, RegisterPageUI.LOG_OUT_LINK);
-		return new HomePageObject(driver);
+		return new PageGeneratorManager().getHomPageObject(driver);
 	}
 }

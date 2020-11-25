@@ -3,6 +3,7 @@ package com.nopcommerce.login;
 import org.testng.annotations.Test;
 
 import commons.AbstractTest;
+import commons.PageGeneratorManager;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
@@ -42,25 +43,19 @@ public class Login_01_RegisterAndLogin extends AbstractTest {
 	public void beforeTest(String browserName) {
 
 		driver = getBrowserDriver(browserName);
-		System.out.println("Browser Name: " + browserName);
-		// Apply for firefox lastest
-//		String osName=System.getProperty("os.name");
-//		if (osName.toLowerCase().contains("window")) {
-//			System.setProperty("webdriver.gecko.driver", ".//browserDrivers//geckodriver.exe");
-//		}else if(osName.toLowerCase().contains("mac")) {
-//			System.setProperty("webdriver.gecko.driver", "./browserDrivers//geckodriver_mac");
-//		}else {
-//			System.setProperty("webdriver.gecko.driver", "./browserDrivers//geckodriver_linux");
-//		}
-		// openUrl(driver, autUrl );
-		// --> Home Page
-
+		
+		//Generator random email
 		email = "julia" + RandomNumber() + "@gmail.com";
 		password = "abcd@54321";
 
-		homePage = new HomePageObject(driver);
-		registerPage = new RegisterPageObject(driver);
-		loginPage = new LoginPageObject(driver);
+//		homePage = new HomePageObject(driver);
+//		registerPage = new RegisterPageObject(driver);
+//		loginPage = new LoginPageObject(driver);
+		
+		//Che giấu việc khởi tạo
+		homePage = PageGeneratorManager.getHomPageObject(driver);
+		registerPage = PageGeneratorManager.getRegisterPageObject(driver);
+		loginPage = PageGeneratorManager.getLoginPageObject(driver);
 	}
 
 	@Test
@@ -130,7 +125,6 @@ public class Login_01_RegisterAndLogin extends AbstractTest {
 
 	@Test
 	public void TC_03_LoginWithEmailIsNotRegister() {
-		loginPage = homePage.clickToLoginLink();
 	}
 	
 	
