@@ -16,13 +16,13 @@ public class HomePageObject extends AbstractPages{
 	public RegisterPageObject clickToRegisterLink() {
 		waitForElementClickable(driver, HomePageUI.REGISTER_LINK);
 		clickToElement(driver, HomePageUI.REGISTER_LINK);
-		return new PageGeneratorManager().getRegisterPageObject(driver); //return ve doi tuong cua regishter page object
+		return PageGeneratorManager.getRegisterPageObject(driver); //return ve doi tuong cua regishter page object
 	}
 
 	public LoginPageObject clickToLoginLink() {
 		waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
 		clickToElement(driver, HomePageUI.LOGIN_LINK);
-		return new PageGeneratorManager().getLoginPageObject(driver);
+		return PageGeneratorManager.getLoginPageObject(driver);
 	}
 
 	public boolean isMyAccountLinkDisplayed() {

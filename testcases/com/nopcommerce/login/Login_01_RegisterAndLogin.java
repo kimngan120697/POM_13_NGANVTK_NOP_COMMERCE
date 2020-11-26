@@ -59,7 +59,22 @@ public class Login_01_RegisterAndLogin extends AbstractTest {
 	}
 
 	@Test
-	public void TC_01_RegisterToSystem() {
+	public void TC_01_RegisterWithEmptyData() {
+		//Home page Click to Register link => Register Page 
+		registerPage = homePage.clickToRegisterLink();
+		
+		//Click on Register Button
+		registerPage.clickToRegisterButton();
+		
+		//Verify Error message is displayed
+		
+		// Verify register success
+				registerSuccessMsg = registerPage.getRegisterSuccessMessage();
+				Assert.assertEquals(registerSuccessMsg, "Your registration completed");
+	}
+	
+	@Test
+	public void TC_02_RegisterToSystem() {
 
 		// Click to Register link => Register page
 		registerPage = homePage.clickToRegisterLink();
@@ -123,9 +138,6 @@ public class Login_01_RegisterAndLogin extends AbstractTest {
 
 	}
 
-	@Test
-	public void TC_03_LoginWithEmailIsNotRegister() {
-	}
 	
 	
 	public int RandomNumber() {
