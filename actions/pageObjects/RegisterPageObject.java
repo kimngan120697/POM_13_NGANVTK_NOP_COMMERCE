@@ -79,4 +79,24 @@ public class RegisterPageObject extends AbstractPages {
 		clickToElement(driver, RegisterPageUI.LOG_OUT_LINK);
 		return PageGeneratorManager.getHomPageObject(driver);
 	}
+	public String getFirtNameEmptyErrorMessage() {
+		waitToElementVisible(driver, RegisterPageUI.FIRST_NAME_EMPTY_ERROR_MSG);
+		return getTextElement(driver, RegisterPageUI.FIRST_NAME_EMPTY_ERROR_MSG);
+	}
+	public String getLastNameEmptyErrorMessage() {
+		waitToElementVisible(driver, RegisterPageUI.LAST_NAME_EMPTY__ERROR_MSG);
+		return getTextElement(driver, RegisterPageUI.LAST_NAME_EMPTY__ERROR_MSG);
+	}
+	public String getEmailEmptyErrorMessage() {
+		waitToElementVisible(driver, RegisterPageUI.EMAIL_EMPTY_ERROR_MSG);
+		return getTextElement(driver, RegisterPageUI.EMAIL_EMPTY_ERROR_MSG);
+	}
+	public String getPasswordEmptyErrorMessage() {
+		waitToElementVisible(driver, RegisterPageUI.PASSWORD_EMPTY_ERROR_MSG);
+		return getTextElement(driver, RegisterPageUI.PASSWORD_EMPTY_ERROR_MSG);
+	}
+	public String getComfirmPasswordEmptyErrorMessage() {
+		waitToElementVisible(driver, RegisterPageUI.CONFIRM_EMPTY_PASSWORD_ERROR_MSG);
+		return getTextElement(driver, RegisterPageUI.CONFIRM_EMPTY_PASSWORD_ERROR_MSG);
+	}
 }

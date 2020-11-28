@@ -15,6 +15,13 @@ public class RegisterPageUI {
 	public static final String CONFIRM_PASSWORD_TEXTBOX="//input[@id='ConfirmPassword']";
 	public static final String REGISTER_BUTTON="//input[@id='register-button']";
 	public static final String REGISTER_SUCCESS_TEXT="//div[contains(text(),'Your registration completed')]";
+
+	public static final String FIRST_NAME_EMPTY_ERROR_MSG="//span[@id='FirstName-error' and text()='First name is required.']";
+	public static final String LAST_NAME_EMPTY__ERROR_MSG="//span[@id='LastName-error' and text()='Last name is required.']";
+	public static final String EMAIL_EMPTY_ERROR_MSG="//span[@id='Email-error' and text()='Email is required.']";
+	public static final String PASSWORD_EMPTY_ERROR_MSG="//span[@id='Password-error' and text()='Password is required.']";
+	public static final String CONFIRM_EMPTY_PASSWORD_ERROR_MSG="//span[@id='ConfirmPassword-error' and text()='Password is required.']";
+	
 	public static final String LOG_OUT_LINK="//a[contains(text(),'Log out')]";
 
 }

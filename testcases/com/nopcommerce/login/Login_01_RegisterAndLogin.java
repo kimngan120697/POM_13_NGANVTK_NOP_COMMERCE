@@ -23,7 +23,7 @@ import org.testng.annotations.AfterTest;
 public class Login_01_RegisterAndLogin extends AbstractTest {
 
 	private WebDriver driver;
-	private String email, password, registerSuccessMsg;
+	private String email, password, registerSuccessMsg, registerErrorMsg;
 	private HomePageObject homePage;
 	private LoginPageObject loginPage;
 	private RegisterPageObject registerPage;
@@ -67,14 +67,29 @@ public class Login_01_RegisterAndLogin extends AbstractTest {
 		registerPage.clickToRegisterButton();
 		
 		//Verify Error message is displayed
+		registerErrorMsg = registerPage.getFirtNameEmptyErrorMessage();
+		Assert.assertEquals(registerErrorMsg, "First name is required.");
 		
-		// Verify register success
-				registerSuccessMsg = registerPage.getRegisterSuccessMessage();
-				Assert.assertEquals(registerSuccessMsg, "Your registration completed");
+		registerErrorMsg = registerPage.getLastNameEmptyErrorMessage();
+		Assert.assertEquals(registerErrorMsg, "Last name is required.");
+		
+		registerErrorMsg = registerPage.getEmailEmptyErrorMessage();
+		Assert.assertEquals(registerErrorMsg, "Email is required.");
+		
+		registerErrorMsg = registerPage.getPasswordEmptyErrorMessage();
+		Assert.assertEquals(registerErrorMsg, "Password is required.");
+		
+		registerErrorMsg = registerPage.getComfirmPasswordEmptyErrorMessage();
+		Assert.assertEquals(registerErrorMsg, "Password is required.");
 	}
 	
 	@Test
-	public void TC_02_RegisterToSystem() {
+	public void TC_02_RegisterWithValidEmail() {
+		
+	}
+	
+	@Test
+	public void TC_03_RegisterToSystem() {
 
 		// Click to Register link => Register page
 		registerPage = homePage.clickToRegisterLink();
@@ -120,7 +135,7 @@ public class Login_01_RegisterAndLogin extends AbstractTest {
 	}
 
 	@Test
-	public void TC_02_LoginToSystem() {
+	public void TC_03_LoginToSystem() {
 		// Click to Login link => Login Page
 		loginPage = homePage.clickToLoginLink();
 
