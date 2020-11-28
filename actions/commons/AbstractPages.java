@@ -250,4 +250,6 @@ public class AbstractPages {
 		waitExplicit = new WebDriverWait(driver, longTimeout);
 		waitExplicit.until(ExpectedConditions.alertIsPresent());
 	}
+	
+	//Open Footer Menu
 }
