@@ -228,7 +228,7 @@ public class AbstractPages {
 		waitExplicit = new WebDriverWait(driver, longTimeout);
 		waitExplicit.until(ExpectedConditions.visibilityOfElementLocated(byXpath));
 	}
-	
+	//
 	public void waitToElementClickable(WebDriver driver, String locator) {
 		byXpath=byXpathLocator(locator);
 		waitExplicit = new WebDriverWait(driver, longTimeout);
