@@ -9,6 +9,7 @@ import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
 
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import java.util.Random;
@@ -40,7 +41,7 @@ public class Login_01_RegisterAndLogin extends AbstractTest {
 	// Lấy 1 giá trị
 	@Parameters("browser")
 	@BeforeTest
-	public void beforeTest(String browserName) {
+	public void beforeTest(@Optional("firefox") String browserName) {
 
 		driver = getBrowserDriver(browserName);
 		
@@ -58,7 +59,6 @@ public class Login_01_RegisterAndLogin extends AbstractTest {
 		loginPage = PageGeneratorManager.getLoginPageObject(driver);
 	}
 
-	@Test
 	public void TC_01_RegisterWithEmptyData() {
 		//Home page Click to Register link => Register Page 
 		registerPage = homePage.clickToRegisterLink();
@@ -83,7 +83,7 @@ public class Login_01_RegisterAndLogin extends AbstractTest {
 		Assert.assertEquals(registerErrorMsg, "Password is required.");
 	}
 	
-	@Test
+	
 	public void TC_02_RegisterWithValidEmail() {
 		
 	}
@@ -135,7 +135,7 @@ public class Login_01_RegisterAndLogin extends AbstractTest {
 	}
 
 	@Test
-	public void TC_03_LoginToSystem() {
+	public void TC_04_LoginToSystem() {
 		// Click to Login link => Login Page
 		loginPage = homePage.clickToLoginLink();
 

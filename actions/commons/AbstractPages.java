@@ -162,11 +162,27 @@ public class AbstractPages {
 	}
 
 	public boolean isElementDisplayed(WebDriver driver, String locator) {
-		return findElementByXpath(driver, locator).isDisplayed();
+		overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
+		try {
+			element= findElementByXpath(driver, locator);
+			overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
+			return element.isDisplayed();
+		} catch (Exception ex) {
+			overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
+			return false;
+		}
 	}
 
 	public boolean isElementDisplayed(WebDriver driver, String locator, String... values) {
-		return findElementByXpath(driver, locator, values).isDisplayed();
+		overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
+		try {
+			element= findElementByXpath(driver, locator, values);
+			overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
+			return element.isDisplayed();
+		} catch (Exception ex) {
+			overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
+			return false;
+		}
 	}
 
 	public boolean isElementSelected(WebDriver driver, String locator) {
@@ -242,13 +258,22 @@ public class AbstractPages {
 
 	public void waitToElementInvisible(WebDriver driver, String locator) {
 		byXpath = byXpathLocator(locator);
-		waitExplicit = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
+		waitExplicit = new WebDriverWait(driver, GlobalConstants.SHORT_TIMEOUT);
+		overrideGlobalTimeout(driver,GlobalConstants.SHORT_TIMEOUT);
 		waitExplicit.until(ExpectedConditions.invisibilityOfElementLocated(byXpath));
+		overrideGlobalTimeout(driver,GlobalConstants.LONG_TIMEOUT);
 	}
 
 	public void waitForAlertPresence(WebDriver driver) {
 		waitExplicit = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
 		waitExplicit.until(ExpectedConditions.alertIsPresent());
+	}
+
+	// Override lai implicit timeout de findelement
+	// Neu goi ham nay thi sau khi goi phai goi lai default
+	// Vi du set short timeout thi sau do phai gan lai mac dinh la long timeout
+	public void overrideGlobalTimeout(WebDriver driver, long timeout) {
+		driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
 	}
 
 	// Open Footer Menu
