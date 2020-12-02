@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Nop Commerce" parallel="false"> 
+
+<listeners>
+<!-- show report trong thang output folder -->
+<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+
+<!-- show report co duoi file xml -->
+<listener class-name="commons.uncommons.reportng.JUnitXMLReporter"/>
+
+<listener class-name="commons.MethodListener"/>
+</listeners>
+
+
 <!-- 	<test name="Run on CHROME"> -->
 <!-- 		<parameter name="browser" value="chrome" /> -->
 <!-- 		<classes> -->
@@ -9,7 +21,8 @@
 	<test name="Run on FIREFOX">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.login.Login_01_RegisterAndLogin" />
+<!-- 			<class name="com.nopcommerce.login.Login_01_RegisterAndLogin" /> -->
+			<class name="com.nopcommerce.login.Practice_Assert_Verify_log" />
 		</classes>
 	</test>
 <!-- 	<test name="Run on CHROME HEADLESS "> -->
