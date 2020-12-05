@@ -1,40 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Nop Commerce" parallel="false"> 
+<suite name="Nop Commerce" parallel="false">
 
-<listeners>
-<!-- show report trong thang output folder -->
-<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="commons.uncommons.reportng.JUnitXMLReporter" />
+		<listener class-name="commons.MethodListener" />
+	</listeners>
 
-<!-- show report co duoi file xml -->
-<listener class-name="commons.uncommons.reportng.JUnitXMLReporter"/>
-
-<listener class-name="commons.MethodListener"/>
-</listeners>
-
-
-<!-- 	<test name="Run on CHROME"> -->
-<!-- 		<parameter name="browser" value="chrome" /> -->
-<!-- 		<classes> -->
-<!-- 			<class name="com.nopcommerce.login.Login_01_RegisterAndLogin" /> -->
-<!-- 		</classes> -->
-<!-- 	</test> -->
+	<!-- <test name="Run on CHROME"> -->
+	<!-- <parameter name="browser" value="chrome" /> -->
+	<!-- <classes> -->
+	<!-- <class name="com.nopcommerce.login.Login_01_RegisterAndLogin" /> -->
+	<!-- </classes> -->
+	<!-- </test> -->
+	
 	<test name="Run on FIREFOX">
 		<parameter name="browser" value="firefox" />
 		<classes>
-<!-- 			<class name="com.nopcommerce.login.Login_01_RegisterAndLogin" /> -->
+			<!-- <class name="com.nopcommerce.login.Login_01_RegisterAndLogin" /> -->
 			<class name="com.nopcommerce.login.Practice_Assert_Verify_log" />
 		</classes>
 	</test>
-<!-- 	<test name="Run on CHROME HEADLESS "> -->
-<!-- 		<parameter name="browser" value="headless_chrome" /> -->
-<!-- 		<classes> -->
-<!-- 			<class name="com.nopcommerce.login.Login_01_RegisterAndLogin" /> -->
-<!-- 		</classes> -->
-<!-- 	</test> -->
-<!-- 		<test name="Run on FIREFOX HEADLESS "> -->
-<!-- 		<parameter name="browser" value="headless_firefox" /> -->
-<!-- 		<classes> -->
-<!-- 			<class name="com.nopcommerce.login.Login_01_RegisterAndLogin" /> -->
-<!-- 		</classes> -->
-<!-- 	</test> -->
+	
+	<!-- <test name="Run on CHROME HEADLESS "> -->
+	<!-- <parameter name="browser" value="headless_chrome" /> -->
+	<!-- <classes> -->
+	<!-- <class name="com.nopcommerce.login.Login_01_RegisterAndLogin" /> -->
+	<!-- </classes> -->
+	<!-- </test> -->
+	
+	<!-- <test name="Run on FIREFOX HEADLESS "> -->
+	<!-- <parameter name="browser" value="headless_firefox" /> -->
+	<!-- <classes> -->
+	<!-- <class name="com.nopcommerce.login.Login_01_RegisterAndLogin" /> -->
+	<!-- </classes> -->
+	<!-- </test> -->
 </suite>
