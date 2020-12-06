@@ -18,7 +18,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 
-
 //Page Object kế thừa abstract page
 // Test case kế thừa abstract test
 public class Login_01_RegisterAndLogin extends AbstractTest {
@@ -37,57 +36,56 @@ public class Login_01_RegisterAndLogin extends AbstractTest {
 	String company = "VNIB";
 
 	// Lấy 2 giá trị
-    // @Parameters({ "browser", "url" })
+	// @Parameters({ "browser", "url" })
 	// Lấy 1 giá trị
 	@Parameters("browser")
 	@BeforeTest
 	public void beforeTest(@Optional("firefox") String browserName) {
 
 		driver = getBrowserDriver(browserName);
-		
-		//Generator random email
+
+		// Generator random email
 		email = "julia" + RandomNumber() + "@gmail.com";
 		password = "abcd@54321";
 
 //		homePage = new HomePageObject(driver);
 //		registerPage = new RegisterPageObject(driver);
 //		loginPage = new LoginPageObject(driver);
-		
-		//Che giấu việc khởi tạo
+
+		// Che giấu việc khởi tạo
 		homePage = PageGeneratorManager.getHomPageObject(driver);
 		registerPage = PageGeneratorManager.getRegisterPageObject(driver);
 		loginPage = PageGeneratorManager.getLoginPageObject(driver);
 	}
 
 	public void TC_01_RegisterWithEmptyData() {
-		//Home page Click to Register link => Register Page 
+		// Home page Click to Register link => Register Page
 		registerPage = homePage.clickToRegisterLink();
-		
-		//Click on Register Button
+
+		// Click on Register Button
 		registerPage.clickToRegisterButton();
-		
-		//Verify Error message is displayed
+
+		// Verify Error message is displayed
 		registerErrorMsg = registerPage.getFirtNameEmptyErrorMessage();
 		Assert.assertEquals(registerErrorMsg, "First name is required.");
-		
+
 		registerErrorMsg = registerPage.getLastNameEmptyErrorMessage();
 		Assert.assertEquals(registerErrorMsg, "Last name is required.");
-		
+
 		registerErrorMsg = registerPage.getEmailEmptyErrorMessage();
 		Assert.assertEquals(registerErrorMsg, "Email is required.");
-		
+
 		registerErrorMsg = registerPage.getPasswordEmptyErrorMessage();
 		Assert.assertEquals(registerErrorMsg, "Password is required.");
-		
+
 		registerErrorMsg = registerPage.getComfirmPasswordEmptyErrorMessage();
 		Assert.assertEquals(registerErrorMsg, "Password is required.");
 	}
-	
-	
+
 	public void TC_02_RegisterWithValidEmail() {
-		
+
 	}
-	
+
 	@Test
 	public void TC_03_RegisterToSystem() {
 
@@ -153,16 +151,14 @@ public class Login_01_RegisterAndLogin extends AbstractTest {
 
 	}
 
-	
-	
 	public int RandomNumber() {
 		Random rand = new Random();
 		return rand.nextInt(999999);
 	}
 
-	@AfterTest
+	@AfterTest (alwaysRun = true)
 	public void afterTest() {
-		driver.quit();
+		closeBrowserAndDriver(driver);
 	}
 
 }

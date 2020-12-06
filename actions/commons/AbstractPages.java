@@ -164,7 +164,7 @@ public class AbstractPages {
 	public boolean isElementDisplayed(WebDriver driver, String locator) {
 		overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
 		try {
-			element= findElementByXpath(driver, locator);
+			element = findElementByXpath(driver, locator);
 			overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
 			return element.isDisplayed();
 		} catch (Exception ex) {
@@ -176,7 +176,7 @@ public class AbstractPages {
 	public boolean isElementDisplayed(WebDriver driver, String locator, String... values) {
 		overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
 		try {
-			element= findElementByXpath(driver, locator, values);
+			element = findElementByXpath(driver, locator, values);
 			overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
 			return element.isDisplayed();
 		} catch (Exception ex) {
@@ -185,10 +185,25 @@ public class AbstractPages {
 		}
 	}
 
+	// Danh cho Checkbox & radio button
 	public boolean isElementSelected(WebDriver driver, String locator) {
-		return findElementByXpath(driver, locator).isSelected();
+		try {
+			element = findElementByXpath(driver, locator);
+			return element.isSelected();
+		} catch (Exception ex) {
+			return false;
+		}
 	}
-
+	public boolean isElementSelected(WebDriver driver, String locator, String...values) {
+		try {
+			element = findElementByXpath(driver, locator, values);
+			return element.isSelected();
+		} catch (Exception ex) {
+			return false;
+		}
+	}
+	
+	
 	public boolean isElementEnabled(WebDriver driver, String locator) {
 		return findElementByXpath(driver, locator).isEnabled();
 	}
@@ -196,6 +211,12 @@ public class AbstractPages {
 	public void hoverMouseToElement(WebDriver driver, String locator) {
 		action = new Actions(driver);
 		element = findElementByXpath(driver, locator);
+		action.moveToElement(element).perform();
+	}
+
+	public void hoverMouseToElement(WebDriver driver, String locator, String... values) {
+		action = new Actions(driver);
+		element = findElementByXpath(driver, locator, values);
 		action.moveToElement(element).perform();
 	}
 
@@ -259,9 +280,9 @@ public class AbstractPages {
 	public void waitToElementInvisible(WebDriver driver, String locator) {
 		byXpath = byXpathLocator(locator);
 		waitExplicit = new WebDriverWait(driver, GlobalConstants.SHORT_TIMEOUT);
-		overrideGlobalTimeout(driver,GlobalConstants.SHORT_TIMEOUT);
+		overrideGlobalTimeout(driver, GlobalConstants.SHORT_TIMEOUT);
 		waitExplicit.until(ExpectedConditions.invisibilityOfElementLocated(byXpath));
-		overrideGlobalTimeout(driver,GlobalConstants.LONG_TIMEOUT);
+		overrideGlobalTimeout(driver, GlobalConstants.LONG_TIMEOUT);
 	}
 
 	public void waitForAlertPresence(WebDriver driver) {
