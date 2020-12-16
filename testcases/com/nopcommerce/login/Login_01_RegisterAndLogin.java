@@ -4,9 +4,9 @@ import org.testng.annotations.Test;
 
 import commons.AbstractTest;
 import commons.PageGeneratorManager;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.nopCommerce.HomePageObject;
+import pageObjects.nopCommerce.LoginPageObject;
+import pageObjects.nopCommerce.RegisterPageObject;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;

@@ -1,10 +1,10 @@
-package pageObjects;
+package pageObjects.nopCommerce;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPages;
 import commons.PageGeneratorManager;
-import pageUIs.HomePageUI;
+import pageUIs.nopCommerce.HomePageUI;
 
 public class HomePageObject extends AbstractPages{
 

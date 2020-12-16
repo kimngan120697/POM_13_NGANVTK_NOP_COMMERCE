@@ -1,10 +1,10 @@
-package pageObjects;
+package pageObjects.nopCommerce;
 
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPages;
 import commons.PageGeneratorManager;
-import pageUIs.RegisterPageUI;
+import pageUIs.nopCommerce.RegisterPageUI;
 
 //ke thua abstract page
 public class RegisterPageObject extends AbstractPages {

@@ -1,4 +1,4 @@
-package pageUIs;
+package pageUIs.nopCommerce;
 
 public class RegisterPageUI {
 	public static final String MALE_RADIO_BUTTON="//input[@id='gender-male']";
